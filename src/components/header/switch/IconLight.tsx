@@ -1,4 +1,3 @@
-import '../App.css';
 import { CiLight } from "react-icons/ci";
 
 function IconLight() {

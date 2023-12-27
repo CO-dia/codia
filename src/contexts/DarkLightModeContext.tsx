@@ -36,7 +36,7 @@ export function DarkLightModeContextProvider(props: DarkLightModeContextProvider
       body.id = 'bg-lgt-mode';
       localStorage.setItem('themePreference', 'light');
     }
-  }, [body, themePreference])
+  }, [body, themePreference]);
 
   const preference = themePreference ? themePreference == 'dark' : window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
   const [isDarkMode, setIsDarkMode] = useState<boolean>(preference);

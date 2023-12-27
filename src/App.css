@@ -12,6 +12,10 @@
 }
 
 header li {
-    padding: 1%;
+    padding: 2%;
     float: left;
+}
+
+.codia-yellow-text {
+    color: #FFF689
 }

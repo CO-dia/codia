@@ -1,4 +1,3 @@
-import '../App.css';
 import { MdDarkMode } from "react-icons/md";
 
 function IconDark() {

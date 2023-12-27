@@ -1,8 +1,9 @@
-import '../App.css';
+import '../../App.css';
 import Switch from "react-switch";
-import IconLight from './IconLight';
-import IconDark from './IconDark';
-import { useHeader } from '../hooks/useHeader';
+import IconLight from './switch/IconLight';
+import IconDark from './switch/IconDark';
+import { useHeader } from '../../hooks/useHeader';
+import BuyButton from './BuyButton';
 
 type HeaderData = {
   handleSwitch: () => void;
@@ -14,11 +15,12 @@ const Header = () => {
   if (!headerData) {
     return null;
   }
+  
   const { handleSwitch, isDarkMode } = headerData;
 
   return (
-    <header>
-        <ul>
+    <header className='flex'>
+      <ul className={'w-full flex justify-end p-5 mr-20 items-center ' + (isDarkMode ? 'codia-yellow-text' : '')}>
             <li>Home</li>      
             <li>How to use</li>      
             <li>Pricing</li>      
@@ -33,6 +35,9 @@ const Header = () => {
                 offColor='#022038'
                 onHandleColor='#022038'
                 offHandleColor='#CCE6F4' />
+            </li>
+            <li>
+              <BuyButton />
             </li>
         </ul>
     </header>
