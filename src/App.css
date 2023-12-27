@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+#bg-dk-mode {
+    background-color: #033863;
+}
+
+#bg-lgt-mode {
+    background-color: #CCE6F4;
+}
+
+header li {
+    padding: 1%;
+    float: left;
+}
