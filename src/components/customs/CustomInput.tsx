@@ -1,17 +1,17 @@
 import { CSSProperties } from "react";
 
-interface CustomInputData {
+interface CustomInputProps {
     label: string,
     type: string,
 }
 
 const CustomInput = ({
     label,
-    type }: CustomInputData) => {
+    type }: CustomInputProps) => {
     
     return (
         <div className='flex flex-col'>
-            <label>
+            <label className='ml-1'>
                 {label}
             </label>
             {type != 'textarea' ?

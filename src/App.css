@@ -20,6 +20,22 @@ header li {
     color: #FFF689
 }
 
+.codia-yellow-background {
+    background-color: #FFF689
+}
+
 .codia-aliceblue-text {
     color: #CCE6F4
+}
+
+.codia-aliceblue-background {
+    background-color: #CCE6F4
+}
+
+.codia-darkblue-text {
+    color: #033863
+}
+
+.codia-darkblue-background {
+    background-color: #033863
 }
