@@ -32,7 +32,7 @@ const styles: Styles = {
         color: '#CCE6F4'
     },
     button: {
-        height: '35px',
+        height: '50px',
         width: '300%',
         borderRadius: '8%'
     }

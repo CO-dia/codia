@@ -4,6 +4,7 @@ import IconLight from './switch/IconLight';
 import IconDark from './switch/IconDark';
 import { useHeader } from '../../hooks/useHeader';
 import BuyButton from './BuyButton';
+import { Link } from "react-router-dom";
 
 type HeaderData = {
   handleSwitch: () => void;
@@ -21,10 +22,10 @@ const Header = () => {
   return (
     <header className='flex'>
       <ul className={'w-full flex justify-end p-5 mr-20 items-center ' + (isDarkMode ? 'codia-yellow-text' : '')}>
-            <li>Home</li>      
-            <li>How to use</li>      
+            <li><Link to='/'>Home</Link></li>      
+            <li><Link to='/tutorial'> How to use </Link></li>      
             <li>Pricing</li>      
-            <li>Contact us</li> 
+            <li><Link to='/contact'>Contact us</Link></li> 
             <li>
               <Switch
                 onChange={handleSwitch}
