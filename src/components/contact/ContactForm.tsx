@@ -1,10 +1,33 @@
-import { CSSProperties } from "react";
+import { CSSProperties, useEffect } from "react";
 import CustomInput from "../customs/CustomInput";
 import SendButton from "./SendButton";
 import { useHeader } from "../../hooks/useHeader";
+import axios from 'axios';
 
 const ContactForm = () => {
     const { isDarkMode } = useHeader() || {};
+
+    const telegramBotToken = import.meta.env.VITE_REACT_APP_TELEGRAM_BOT_TOKEN;
+    const chatId = import.meta.env.VITE_REACT_APP_TELEGRAM_CHAT_ID;
+
+    const sendMessage = async (message: string) => {
+    try {
+        const response = await axios.post(`https://api.telegram.org/bot${telegramBotToken}/sendMessage`, {
+        chat_id: chatId,
+        text: message,
+        });
+
+        console.log(response.data);
+    } catch (error) {
+        console.error(error);
+    }
+    };
+
+    // Exemple d'utilisation
+    useEffect(() => {
+        sendMessage('Hello from React App!');
+    }, [isDarkMode])
+
 
     return (
         <form
