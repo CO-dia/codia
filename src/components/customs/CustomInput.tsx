@@ -1,13 +1,20 @@
-import { CSSProperties } from "react";
+import { CSSProperties, ChangeEvent, Dispatch, SetStateAction } from "react";
 
 interface CustomInputProps {
     label: string,
     type: string,
+    onChange: Dispatch<SetStateAction<string>>
 }
 
 const CustomInput = ({
     label,
-    type }: CustomInputProps) => {
+    type,
+    onChange }: CustomInputProps) => {
+    
+    const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { value } = event.target;
+        onChange(value);
+    };
     
     return (
         <div className='flex flex-col'>
@@ -17,9 +24,11 @@ const CustomInput = ({
             {type != 'textarea' ?
                 <input
                     type={type}
+                    onChange={handleChange}
                     style={{ ...styles.input, height: 50}} />
                 :
                 <textarea
+                    onChange={handleChange}
                     style={{
                         ...styles.input,
                         height: 150,
