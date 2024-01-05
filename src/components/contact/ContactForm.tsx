@@ -7,6 +7,11 @@ import useContactForm from "../../hooks/useContactForm";
 const ContactForm = () => {
     const { isDarkMode } = useHeader() || {};
     const {
+        firstName,
+        lastName,
+        email,
+        phone,
+        message,
         setFirstName,
         setLastName,
         setEmail,
@@ -22,18 +27,18 @@ const ContactForm = () => {
                 ...styles.form,
                 backgroundColor: isDarkMode ? '#021F3775' : '#345166'}}>
             <div className="flex my-10 w-4/5 justify-between">
-                <CustomInput label="First Name" type="text" onChange={setFirstName} />
-                <CustomInput label="Last Name" type="text" onChange={setLastName} />
+                <CustomInput label="First Name" type="text" value={firstName} onChange={setFirstName} />
+                <CustomInput label="Last Name" type="text" value={lastName} onChange={setLastName} />
             </div>
             <div className="w-4/5">
                 <div className="mb-10">
-                    <CustomInput label="Email" type="email" onChange={setEmail} />
+                    <CustomInput label="Email" type="email" value={email} onChange={setEmail} />
                 </div>
                 <div className="mb-10">
-                    <CustomInput label="Phone" type="tel" onChange={setPhone} />
+                    <CustomInput label="Phone" type="tel" value={phone} onChange={setPhone} />
                 </div>
                 <div className="mb-10">
-                    <CustomInput label="Message" type="textarea" onChange={setMessage} />
+                    <CustomInput label="Message" type="textarea" value={message} onChange={setMessage} />
                 </div>
             </div>
             <div className="mb-10">

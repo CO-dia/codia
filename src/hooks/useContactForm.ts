@@ -19,20 +19,32 @@ export default function useContactForm() {
                 chat_id: chatId,
                 text: formattedMessage,
             });
+            resetValues();
+
         } catch (error) {
             console.error(error);
         }
     };
 
     const formatMessage : () => string = () => {
-        return `First name  :  ${firstName}
-              \nLast name  :  ${lastName}
-              \nEmail  :  ${email}
-              \nPhone  :  ${phone}
-              \nMessage  :  ${message}`;
+        return `${message}
+            \nFirst name  :  ${firstName}\nLast name  :  ${lastName}\n\nEmail  :  ${email}\nPhone  :  ${phone}`;
+    }
+
+    const resetValues: () => void = () => {
+        setFirstName('');
+        setLastName('');
+        setEmail('');
+        setPhone('');
+        setMessage('');
     }
 
     return {
+        firstName,
+        lastName,
+        email,
+        phone,
+        message,
         setFirstName,
         setLastName,
         setEmail,

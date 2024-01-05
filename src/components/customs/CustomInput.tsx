@@ -3,12 +3,14 @@ import { CSSProperties, ChangeEvent, Dispatch, SetStateAction } from "react";
 interface CustomInputProps {
     label: string,
     type: string,
+    value: string,
     onChange: Dispatch<SetStateAction<string>>
 }
 
 const CustomInput = ({
     label,
     type,
+    value,
     onChange }: CustomInputProps) => {
     
     const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -24,10 +26,12 @@ const CustomInput = ({
             {type != 'textarea' ?
                 <input
                     type={type}
+                    value={value}
                     onChange={handleChange}
                     style={{ ...styles.input, height: 50}} />
                 :
                 <textarea
+                    value={value}
                     onChange={handleChange}
                     style={{
                         ...styles.input,
