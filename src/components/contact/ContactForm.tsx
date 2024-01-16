@@ -7,16 +7,9 @@ import useContactForm from "../../hooks/useContactForm";
 const ContactForm = () => {
     const { isDarkMode } = useHeader() || {};
     const {
-        firstName,
-        lastName,
-        email,
-        phone,
-        message,
-        setFirstName,
-        setLastName,
-        setEmail,
-        setPhone,
-        setMessage,
+        contactForm,
+        errors,
+        handleChange,
         sendContactMessage
     } = useContactForm();
 
@@ -27,24 +20,54 @@ const ContactForm = () => {
                 ...styles.form,
                 backgroundColor: isDarkMode ? '#021F3775' : '#345166'}}>
             <div className="flex my-10 w-4/5 justify-between">
-                <CustomInput label="First Name" type="text" value={firstName} onChange={setFirstName} />
-                <CustomInput label="Last Name" type="text" value={lastName} onChange={setLastName} />
+                <CustomInput 
+                    label="First Name" 
+                    name="firstName"
+                    type="text" 
+                    value={contactForm.firstName}
+                    error={errors.firstName} 
+                    onChange={handleChange} />
+                <CustomInput 
+                    label="Last Name" 
+                    name="lastName"
+                    type="text" 
+                    value={contactForm.lastName} 
+                    error={errors.lastName}
+                    onChange={handleChange} />
             </div>
             <div className="w-4/5">
                 <div className="mb-10">
-                    <CustomInput label="Email" type="email" value={email} onChange={setEmail} />
+                    <CustomInput 
+                        label="Email" 
+                        name="email"
+                        type="email" 
+                        value={contactForm.email} 
+                        error={errors.email}
+                        onChange={handleChange} />
                 </div>
                 <div className="mb-10">
-                    <CustomInput label="Phone" type="tel" value={phone} onChange={setPhone} />
+                    <CustomInput 
+                        label="Phone" 
+                        name="phone"
+                        type="tel" 
+                        value={contactForm.phone} 
+                        error={errors.phone}
+                        onChange={handleChange} />
                 </div>
                 <div className="mb-10">
-                    <CustomInput label="Message" type="textarea" value={message} onChange={setMessage} />
+                    <CustomInput 
+                        label="Message" 
+                        name="message"
+                        type="textarea" 
+                        value={contactForm.message} 
+                        error={errors.message}
+                        onChange={handleChange} />
                 </div>
             </div>
             <div className="mb-10">
                 <SendButton onSubmit={sendContactMessage} isDarkMode={isDarkMode} />
             </div>
-      </div>
+        </div>
     );
 };
 

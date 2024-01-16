@@ -5,10 +5,10 @@ import { DarkLightModeContextProvider } from './contexts/DarkLightModeContext.ts
 import { ToastContainer } from 'react-toastify';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <DarkLightModeContextProvider>
-      <App />
-      <ToastContainer />
-    </DarkLightModeContextProvider>
-  </React.StrictMode>,
+    <React.StrictMode>
+        <DarkLightModeContextProvider>
+            <App />
+            <ToastContainer />
+        </DarkLightModeContextProvider>
+    </React.StrictMode>,
 )

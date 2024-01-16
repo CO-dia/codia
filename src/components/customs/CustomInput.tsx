@@ -1,22 +1,25 @@
-import { CSSProperties, ChangeEvent, Dispatch, SetStateAction } from "react";
+import { CSSProperties } from "react";
 
 interface CustomInputProps {
     label: string,
+    name: string,
     type: string,
     value: string,
-    onChange: Dispatch<SetStateAction<string>>
+    error: string,
+    onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
 }
 
 const CustomInput = ({
     label,
+    name,
     type,
     value,
+    error,
     onChange }: CustomInputProps) => {
-    
-    const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { value } = event.target;
-        onChange(value);
-    };
+
+    const errorStyle: CSSProperties = error ? {
+        border: '1px solid red'
+    } : {};
     
     return (
         <div className='flex flex-col'>
@@ -26,19 +29,33 @@ const CustomInput = ({
             {type != 'textarea' ?
                 <input
                     type={type}
+                    name={name}
                     value={value}
-                    onChange={handleChange}
-                    style={{ ...styles.input, height: 50}} />
+                    onChange={onChange}
+                    style={{ 
+                        ...styles.input, 
+                        ...errorStyle,
+                        height: 50,
+                    }} />
                 :
                 <textarea
+                    name={name}
                     value={value}
-                    onChange={handleChange}
+                    onChange={onChange}
                     style={{
                         ...styles.input,
+                        ...errorStyle,
                         height: 150,
                         resize: 'none',
+                        paddingTop: 7
                     }}
                 />
+            }
+            {
+                error &&
+                <p className='text-red-500 text-base ml-1'>
+                    {error}
+                </p>
             }
         </div>
     );

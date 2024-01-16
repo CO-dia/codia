@@ -7,18 +7,18 @@ type HeaderData = {
 };
 
 const Layout = () => {
-  const headerData: HeaderData | undefined = useHeader();
-  if (!headerData) {
-    return null;
-  }
+    const headerData: HeaderData | undefined = useHeader();
+    if (!headerData) {
+        return null;
+    }
   
-  const { isDarkMode } = headerData;
-  return (
-    <div className={isDarkMode ? 'codia-aliceblue-text' : 'codia-darkblue-text'}>
-      <Header />
-      <Outlet />
-    </div>
-  );
+    const { isDarkMode } = headerData;
+    return (
+        <div className={isDarkMode ? 'codia-aliceblue-text' : 'codia-darkblue-text'}>
+            <Header />
+            <Outlet />
+        </div>
+    );
 };
 
 export default Layout;

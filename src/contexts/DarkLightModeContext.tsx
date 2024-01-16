@@ -17,38 +17,38 @@ interface DarkLightModeContextProviderProps {
  * @return {JSX.Element}
  */
 export function DarkLightModeContextProvider(props: DarkLightModeContextProviderProps): JSX.Element {
-  const { children } = props;
+    const { children } = props;
 
-  const body = document.body;
-  const themePreference = localStorage.getItem("themePreference");
+    const body = document.body;
+    const themePreference = localStorage.getItem("themePreference");
 
-  useEffect(() => {
-    if (themePreference) {
-      body.id = themePreference == 'dark' ? 'bg-dk-mode' : 'bg-lgt-mode';
-      return;
-    }
+    useEffect(() => {
+        if (themePreference) {
+            body.id = themePreference == 'dark' ? 'bg-dk-mode' : 'bg-lgt-mode';
+            return;
+        }
 
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      body.id = 'bg-dk-mode';
-      localStorage.setItem('themePreference', 'dark');
-    }
-    else {
-      body.id = 'bg-lgt-mode';
-      localStorage.setItem('themePreference', 'light');
-    }
-  }, [body, themePreference]);
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            body.id = 'bg-dk-mode';
+            localStorage.setItem('themePreference', 'dark');
+        }
+        else {
+            body.id = 'bg-lgt-mode';
+            localStorage.setItem('themePreference', 'light');
+        }
+    }, [body, themePreference]);
 
-  const preference = themePreference ? themePreference == 'dark' : window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(preference);
+    const preference = themePreference ? themePreference == 'dark' : window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+    const [isDarkMode, setIsDarkMode] = useState<boolean>(preference);
 
-  const contextValue: DarkLightModeContextProps = {
-    isDarkMode,
-    setIsDarkMode,
-  };
+    const contextValue: DarkLightModeContextProps = {
+        isDarkMode,
+        setIsDarkMode,
+    };
 
-  return (
-    <DarkLightModeContext.Provider value={contextValue}>
-      {children}
-    </DarkLightModeContext.Provider>
-  );
+    return (
+        <DarkLightModeContext.Provider value={contextValue}>
+            {children}
+        </DarkLightModeContext.Provider>
+    );
 }
