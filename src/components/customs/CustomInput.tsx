@@ -6,6 +6,7 @@ interface CustomInputProps {
     type: string,
     value: string,
     error: string,
+    optional?: boolean,
     onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
 }
 
@@ -15,6 +16,7 @@ const CustomInput = ({
     type,
     value,
     error,
+    optional = false,
     onChange }: CustomInputProps) => {
 
     const errorStyle: CSSProperties = error ? {
@@ -24,7 +26,7 @@ const CustomInput = ({
     return (
         <div className='flex flex-col'>
             <label className='ml-1'>
-                {label}
+                {label} {optional && <span className='text-gray-500'>(optional)</span>}
             </label>
             {type != 'textarea' ?
                 <input

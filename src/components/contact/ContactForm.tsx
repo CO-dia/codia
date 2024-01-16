@@ -52,6 +52,7 @@ const ContactForm = () => {
                         type="tel" 
                         value={contactForm.phone} 
                         error={errors.phone}
+                        optional={true}
                         onChange={handleChange} />
                 </div>
                 <div className="mb-10">
@@ -61,6 +62,7 @@ const ContactForm = () => {
                         type="textarea" 
                         value={contactForm.message} 
                         error={errors.message}
+                        optional={true}
                         onChange={handleChange} />
                 </div>
             </div>
