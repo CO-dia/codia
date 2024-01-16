@@ -53,6 +53,7 @@ const styles: Styles = {
         width: '100%',
         backgroundColor: '#CCE6F4',
         borderRadius: 5,
+        padding: '0 2%',
         color: 'black'
     }
 }
