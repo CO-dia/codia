@@ -2,6 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useHeader } from './useHeader';
 
 interface ContactForm {
     firstName: string,
@@ -9,9 +10,12 @@ interface ContactForm {
     email: string,
     phone: string,
     message: string,
+    [key: string]: string
 }
 
 export default function useContactForm() {
+    const { isDarkMode } = useHeader() || {};
+
     const [contactForm, setContactForm] = useState<ContactForm>({
         firstName: '',
         lastName: '',
@@ -30,8 +34,8 @@ export default function useContactForm() {
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
-        console.log('handle change', name);
         setContactForm({...contactForm, [name]: value});
+        setErrors({...errors, [name]: ''});
     };
 
     const telegramBotToken = import.meta.env.VITE_REACT_APP_TELEGRAM_BOT_TOKEN;
@@ -39,25 +43,40 @@ export default function useContactForm() {
 
     const sendContactMessage = async () => {
         const formattedMessage = formatMessage();
+        
         try {
-            console.log(formattedMessage);
-
-            if (!verifyForm()) return;
+            if (!verifyForm()) {
+                toast.error('Please fill in all required fields', {
+                    position: 'top-left',
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    pauseOnHover: false,
+                    draggable: true,
+                    style: {
+                        color: '#f76f6f',
+                        backgroundColor: (isDarkMode ? '#1E2A36' : '#275682')
+                    }
+                });
+                return;
+            }
 
             await axios.post(`https://api.telegram.org/bot${telegramBotToken}/sendMessage`, {
                 chat_id: chatId,
                 text: formattedMessage,
             });
-            toast('Test', {
+
+            toast.success('Sent successfully', {
                 position: 'top-left',
                 autoClose: 2000,
                 hideProgressBar: false,
                 pauseOnHover: false,
                 draggable: true,
                 style: {
-                    backgroundColor: '#FFF689'
+                    color: '#00C9A1',
+                    backgroundColor: (isDarkMode ? '#1E2A36' : '#536b82')
                 }
             });
+            
             resetValues();
 
         } catch (error) {
@@ -109,7 +128,7 @@ export default function useContactForm() {
 
         if (contactForm.message.trim() === '') {
             updatedErrors.message = 'Message is required';
-            isValid = false;
+            isValid = false;  
         } else {
             updatedErrors.message = '';
         }

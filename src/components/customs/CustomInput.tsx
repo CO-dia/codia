@@ -3,6 +3,7 @@ import { CSSProperties } from "react";
 interface CustomInputProps {
     label: string,
     name: string,
+    placeholder: string,
     type: string,
     value: string,
     error: string,
@@ -13,6 +14,7 @@ interface CustomInputProps {
 const CustomInput = ({
     label,
     name,
+    placeholder,
     type,
     value,
     error,
@@ -20,7 +22,7 @@ const CustomInput = ({
     onChange }: CustomInputProps) => {
 
     const errorStyle: CSSProperties = error ? {
-        border: '1px solid red'
+        border: '2px solid red'
     } : {};
     
     return (
@@ -32,6 +34,7 @@ const CustomInput = ({
                 <input
                     type={type}
                     name={name}
+                    placeholder={placeholder}
                     value={value}
                     onChange={onChange}
                     style={{ 
@@ -42,6 +45,7 @@ const CustomInput = ({
                 :
                 <textarea
                     name={name}
+                    placeholder={placeholder}
                     value={value}
                     onChange={onChange}
                     style={{

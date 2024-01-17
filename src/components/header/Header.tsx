@@ -20,8 +20,8 @@ const Header = () => {
     const { handleSwitch, isDarkMode } = headerData;
 
     return (
-        <header className='flex'>
-            <ul className={'w-full flex justify-end p-5 mr-20 items-center ' + (isDarkMode ? 'codia-yellow-text' : '')}>
+        <header className='flex sticky top-0' id={(isDarkMode ? 'bg-dk-mode' : 'bg-lgt-mode')}>
+            <ul className={'w-full flex justify-end px-5 mr-20 items-center ' + (isDarkMode ? 'codia-yellow-text' : '')}>
                 <li><Link to='/'>Home</Link></li>      
                 <li><Link to='/tutorial'> How to use </Link></li>      
                 <li>Pricing</li>      

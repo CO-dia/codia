@@ -22,6 +22,7 @@ const ContactForm = () => {
             <div className="flex my-10 w-4/5 justify-between">
                 <CustomInput 
                     label="First Name" 
+                    placeholder="John"
                     name="firstName"
                     type="text" 
                     value={contactForm.firstName}
@@ -29,6 +30,7 @@ const ContactForm = () => {
                     onChange={handleChange} />
                 <CustomInput 
                     label="Last Name" 
+                    placeholder="Doe"
                     name="lastName"
                     type="text" 
                     value={contactForm.lastName} 
@@ -39,6 +41,7 @@ const ContactForm = () => {
                 <div className="mb-10">
                     <CustomInput 
                         label="Email" 
+                        placeholder="johndoe@gmail.com"
                         name="email"
                         type="email" 
                         value={contactForm.email} 
@@ -48,6 +51,7 @@ const ContactForm = () => {
                 <div className="mb-10">
                     <CustomInput 
                         label="Phone" 
+                        placeholder="+1234567890"
                         name="phone"
                         type="tel" 
                         value={contactForm.phone} 
@@ -58,11 +62,11 @@ const ContactForm = () => {
                 <div className="mb-10">
                     <CustomInput 
                         label="Message" 
+                        placeholder="Your message ..."
                         name="message"
                         type="textarea" 
                         value={contactForm.message} 
                         error={errors.message}
-                        optional={true}
                         onChange={handleChange} />
                 </div>
             </div>
