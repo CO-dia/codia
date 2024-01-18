@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Layout from './components/Layout';
 import Contact from './pages/Contact';
 import Tutorial from './pages/Tutorial';
+import Buy from './pages/Buy';
 
 function App() {
     return (
@@ -13,6 +14,7 @@ function App() {
                     <Route index element={<Home />} />
                     <Route path='contact' element={<Contact />} />
                     <Route path='tutorial' element={<Tutorial />} />
+                    <Route path='buy' element={<Buy />} />
                 </Route>
             </Routes>
         </BrowserRouter>

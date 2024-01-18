@@ -1,8 +1,10 @@
 import { CSSProperties } from 'react';
 import { useHeader } from '../../hooks/useHeader';
+import { useNavigate } from "react-router-dom";
 
 const BuyButton = () => {
     const { isDarkMode } = useHeader() || {};
+    const navigate = useNavigate();
 
     return (
         <button
@@ -10,7 +12,7 @@ const BuyButton = () => {
                 ...styles.button,
                 ...(isDarkMode ? styles.buttonDk : styles.buttonLgt)
             }}
-            onClick={() => alert('buy')}>
+            onClick={() => navigate("/buy")}>
             Buy      
         </button>
     )

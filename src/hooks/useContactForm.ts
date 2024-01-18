@@ -139,7 +139,8 @@ export default function useContactForm() {
     }
 
     const formatMessage : () => string = () => {
-        return `${contactForm.message}
+        return `Contact:
+            \n${contactForm.message}
             \nFirst name  :  ${contactForm.firstName}\nLast name  :  ${contactForm.lastName}\n\nEmail  :  ${contactForm.email}\nPhone  :  ${contactForm.phone}`;
     }
 

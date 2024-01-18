@@ -23,8 +23,7 @@ const Header = () => {
         <header className='flex sticky top-0' id={(isDarkMode ? 'bg-dk-mode' : 'bg-lgt-mode')}>
             <ul className={'w-full flex justify-end px-5 mr-20 items-center ' + (isDarkMode ? 'codia-yellow-text' : '')}>
                 <li><Link to='/'>Home</Link></li>      
-                <li><Link to='/tutorial'> How to use </Link></li>      
-                <li>Pricing</li>      
+                <li><Link to='/tutorial'> How to use </Link></li>     
                 <li><Link to='/contact'>Contact us</Link></li> 
                 <li>
                     <Switch
