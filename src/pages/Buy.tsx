@@ -16,8 +16,7 @@ const Buy = () => {
                 country: "#country",
             },
         });
-    }, [])
-    
+    }, []);
 
     return (
         <div>
