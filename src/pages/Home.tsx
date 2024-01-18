@@ -3,7 +3,6 @@ import { Canvas } from '@react-three/fiber';
 import Card from '../components/home/Card';
 
 const Home = () => {
-
     return (
         <div className='flex h-screen' id='homediv'>
             <Canvas>
