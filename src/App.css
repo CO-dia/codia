@@ -1,3 +1,49 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+h1 {
+    font-size: 5rem;
+    font-weight: 400;
+}
+
+#homediv {
+    height: 80vh;
+}
+
+#bg-dk-mode {
+    background-color: #033863;
+}
+
+#bg-lgt-mode {
+    background-color: #CCE6F4;
+}
+
+header li {
+    padding: 1.5%;
+    float: left;
+}
+
+.codia-yellow-text {
+    color: #FFF689
+}
+
+.codia-yellow-background {
+    background-color: #FFF689
+}
+
+.codia-aliceblue-text {
+    color: #CCE6F4
+}
+
+.codia-aliceblue-background {
+    background-color: #CCE6F4
+}
+
+.codia-darkblue-text {
+    color: #033863
+}
+
+.codia-darkblue-background {
+    background-color: #033863
+}
