@@ -1,4 +1,3 @@
-import { CSSProperties } from "react";
 import { useHeader } from "../../hooks/useHeader";
 import { Address } from "../../types/Address";
 import CustomInput from "./CustomInput";
