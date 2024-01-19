@@ -10,7 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@ideal-postcodes/address-finder": "^4.4.1",
     "@react-three/drei": "^9.94.1",
     "@react-three/fiber": "^8.15.14",
     "axios": "^1.6.4",

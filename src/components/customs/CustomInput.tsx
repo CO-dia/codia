@@ -5,8 +5,8 @@ interface CustomInputProps {
     name: string,
     placeholder: string,
     type: string,
-    value: string,
-    error: string,
+    value: string | undefined,
+    error: string | undefined,
     optional?: boolean,
     onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
 }
